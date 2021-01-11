@@ -10,6 +10,8 @@ var answerFour = document.querySelector("#answerFour");
 
 bubbles.style.display = "none";
 
+questionNumber = 1;
+
 startButton.addEventListener("click", function() {
    alert("Quiz Will Begin Now");
    myTimer();
@@ -54,48 +56,94 @@ function questionOne() {
 startButton.style.display = "none"; 
 bubbles.style.display = "block";
 header.innerHTML = "<h3>What breed of dog is this?</h3>";
-image.src = "https://www.dogtime.com/assets/uploads/2011/01/file_23146_dalmatian.jpg";
+image.src = "images/dalmation.jpg";
 
     answerOne.innerHTML = "<b>Dalmation</b>";
     
-    // answerOne.addEventListener("click", function () {
-    //     correct();
-    //  });
+    answerOne.addEventListener("click", function () {
+        correct();
+     });
 
     answerTwo.innerHTML = "<b>Labrador Retriever</b>";
     
     // answerTwo.addEventListener("click", function () {
-    //     correct();
+    //     incorrect();
     //  });
 
     answerThree.innerHTML = "<b>Fire Truck</b>";
     
     // answerThree.addEventListener("click", function () {
-    //     correct();
+    //     incorrect();
     //  });
 
     answerFour.innerHTML = "<b>Polka Dot</b>";
     
     // answerFour.addEventListener("click", function () {
-    //     correct();
+    //     incorrect();
     //  });
 }
 
-    //HTML buttons
-//     document.querySelector("container") = "hello"
-//     <div class = "row">
-//     <div class="btn-group col-lg-4"></div>
-//     <div class="btn-group-vertical col-lg-4">
-//     <button type="button" class="btn btn-outline-info">1</button>
-//     <button type="button" class="btn btn-outline-info">2</button>
-//     <button type="button" class="btn btn-outline-info">3</button>
-//     <button type="button" class="btn btn-outline-info">4</button>
-//     </div>
-// <div class="btn-group col-lg-4"></div>
-// </div>
+function questionTwo() {
+    startButton.style.display = "none"; 
+    bubbles.style.display = "block";
+    header.innerHTML = "<h3>What breed of dog is this?</h3>";
+    image.src = "images/gshort.jpg";
+    
+        answerOne.innerHTML = "<b>English Pointer</b>";
+        
+        answerOne.addEventListener("click", function () {
+            correct();
+         });
+    
+        answerTwo.innerHTML = "<b>German Shepherd</b>";
+        
+        // answerTwo.addEventListener("click", function () {
+        //     incorrect();
+        //  });
+    
+        answerThree.innerHTML = "<b>German Shorthair Pointer</b>";
+        
+        answerThree.addEventListener("click", function () {
+            correct();
+         });
+    
+        answerFour.innerHTML = "<b>Polka Dot</b>";
+        
+        // answerFour.addEventListener("click", function () {
+        //     incorrect();
+        //  });
+    }   
 
-    // $("Question1").html("<h1>"ANSWER ME"<h1>");
-
+    function questionThree() {
+        startButton.style.display = "none"; 
+        bubbles.style.display = "block";
+        header.innerHTML = "<h3>What breed of dog is this?</h3>";
+        image.src = "images/ausshep.jpg";
+        
+            answerOne.innerHTML = "<b>Australian Cattle Dog</b>";
+            
+            answerOne.addEventListener("click", function () {
+                correct();
+             });
+        
+            answerTwo.innerHTML = "<b>Australian Shepherd</b>";
+            
+            answerTwo.addEventListener("click", function () {
+                correct();
+             });
+        
+            answerThree.innerHTML = "<b>English Setter</b>";
+            
+            answerThree.addEventListener("click", function () {
+                correct();
+             });
+        
+            answerFour.innerHTML = "<b>Polka Dot</b>";
+            
+            // answerFour.addEventListener("click", function () {
+            //     incorrect();
+            //  });
+        }   
 
 //Game Over
 function gameOver() {
@@ -103,8 +151,20 @@ function gameOver() {
 
 }
 
+function correct() {
+    // alert("DING DING DING");
+    questionNumber ++;
+    nextQuestion();
+}
 
-
+function nextQuestion () {
+if (questionNumber === 2) {
+    questionTwo();
+};
+if (questionNumber === 3) {
+    questionThree();
+}
+}
 //     function wrongAnswer () {
 //         time = timertext - 10;
 //         ;
