@@ -12,6 +12,10 @@ bubbles.style.display = "none";
 
 questionNumber = 1;
 
+var timer = document.querySelector("#countdownSpan");
+var timerText = 60;
+var countdown;
+
 startButton.addEventListener("click", function() {
    alert("Quiz Will Begin Now");
    myTimer();
@@ -19,21 +23,15 @@ startButton.addEventListener("click", function() {
 })
 
 
-var timer = document.querySelector("#countdownSpan");
-var timerText = 60;
-
 function myTimer() {  
-    var countdown = setInterval(function() {   
+    countdown = setInterval(function() {   
     timerText--;
-    timer.textContent = timerText;
-    if (timerText === 0 || timerText < 0 ) {
+    timer.textContent = "Time Left: " + timerText;
+    if (timerText <= 0 ) {
         clearInterval(countdown);
+        timerText = 0;
+        timer.textContent = "TIME IS UP!"
         gameOver();
-
-//adding hide to startbutton
-
-
-
 
 
     }
@@ -66,21 +64,21 @@ image.src = "images/dalmation.jpg";
 
     answerTwo.innerHTML = "<b>Labrador Retriever</b>";
     
-    // answerTwo.addEventListener("click", function () {
-    //     incorrect();
-    //  });
+    answerTwo.addEventListener("click", function () {
+        incorrect();
+     });
 
     answerThree.innerHTML = "<b>Fire Truck</b>";
     
-    // answerThree.addEventListener("click", function () {
-    //     incorrect();
-    //  });
+    answerThree.addEventListener("click", function () {
+        incorrect();
+     });
 
     answerFour.innerHTML = "<b>Polka Dot</b>";
     
-    // answerFour.addEventListener("click", function () {
-    //     incorrect();
-    //  });
+    answerFour.addEventListener("click", function () {
+        incorrect();
+     });
 }
 
 function questionTwo() {
@@ -97,9 +95,9 @@ function questionTwo() {
     
         answerTwo.innerHTML = "<b>German Shepherd</b>";
         
-        // answerTwo.addEventListener("click", function () {
-        //     incorrect();
-        //  });
+        answerTwo.addEventListener("click", function () {
+            incorrect();
+         });
     
         answerThree.innerHTML = "<b>German Shorthair Pointer</b>";
         
@@ -109,9 +107,9 @@ function questionTwo() {
     
         answerFour.innerHTML = "<b>Polka Dot</b>";
         
-        // answerFour.addEventListener("click", function () {
-        //     incorrect();
-        //  });
+        answerFour.addEventListener("click", function () {
+            incorrect();
+         });
     }   
 
     function questionThree() {
@@ -140,9 +138,9 @@ function questionTwo() {
         
             answerFour.innerHTML = "<b>Polka Dot</b>";
             
-            // answerFour.addEventListener("click", function () {
-            //     incorrect();
-            //  });
+            answerFour.addEventListener("click", function () {
+                incorrect();
+             });
         }   
 
 //Game Over
@@ -165,6 +163,7 @@ if (questionNumber === 3) {
     questionThree();
 }
 }
-//     function wrongAnswer () {
-//         time = timertext - 10;
-//         ;
+    function incorrect () {
+       timer.textContent = "Time Left: " + timerText;
+       timerText -=10;
+    }
