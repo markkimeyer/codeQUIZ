@@ -1,3 +1,8 @@
+.navbar {
+    height: 10em;
+    border: solid 3px purple;
+}
+
 h3 {
     text-align: center;
 }

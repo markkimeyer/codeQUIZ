@@ -29,7 +29,6 @@ function myTimer() {
     timer.textContent = "Time Left: " + timerText;
     if (timerText <= 0 ) {
         clearInterval(countdown);
-        timerText = 0;
         timer.textContent = "TIME IS UP!"
         gameOver();
 
@@ -145,7 +144,9 @@ function questionTwo() {
 
 //Game Over
 function gameOver() {
-
+    timer.style.display = "none";
+    clearInterval(countdown);
+    alert("ALL DONE!");
 
 }
 
@@ -166,4 +167,8 @@ if (questionNumber === 3) {
     function incorrect () {
        timer.textContent = "Time Left: " + timerText;
        timerText -=10;
+       if (timerText <= 0 ) {
+        clearInterval(countdown);
+        timer.textContent = "TIME IS UP!"
+       }
     }
