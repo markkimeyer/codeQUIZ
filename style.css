@@ -1,8 +1,9 @@
 .navbar {
-    height: 10em;
-    border: solid 3px purple;
+    height: 5em;
 }
-
+h2 {
+    text-align: center;
+}
 h3 {
     text-align: center;
 }
@@ -22,7 +23,7 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 40%;
 }
 
 #countdownSpan {

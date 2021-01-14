@@ -13,24 +13,24 @@ bubbles.style.display = "none";
 questionNumber = 1;
 
 var timer = document.querySelector("#countdownSpan");
-var timerText = 60;
+var timerText = 40;
 var countdown;
 
 startButton.addEventListener("click", function() {
-   alert("Quiz Will Begin Now");
+   alert("You have " + timerText + " seconds to complete the quiz. Click OK to begin.");
    myTimer();
    questionOne();
 })
 
 
 function myTimer() {  
-    countdown = setInterval(function() {   
+   countdown = setInterval(function() {   
     timerText--;
     timer.textContent = "Time Left: " + timerText;
     if (timerText <= 0 ) {
         clearInterval(countdown);
         timer.textContent = "TIME IS UP!"
-        gameOver();
+        gameOver(timerText);
 
 
     }
@@ -38,9 +38,7 @@ function myTimer() {
 }, 1000)
 }
 
-function calcScore() {
-    score += timerText;
- }
+
 
 //TEST: THIS REPLACES BODY WITH "QUESTION ONE" HEADER 3 TEXT
 // function questionUno() {
@@ -117,22 +115,23 @@ function questionTwo() {
         header.innerHTML = "<h3>What breed of dog is this?</h3>";
         image.src = "images/ausshep.jpg";
         
-            answerOne.innerHTML = "<b>Australian Cattle Dog</b>";
+            answerOne.innerHTML = "<b>Ausiedoodle</b>";
             
             answerOne.addEventListener("click", function () {
-                correct();
+                incorrect();
              });
         
             answerTwo.innerHTML = "<b>Australian Shepherd</b>";
             
             answerTwo.addEventListener("click", function () {
                 correct();
+                gameOver(timerText + 20);
              });
         
             answerThree.innerHTML = "<b>English Setter</b>";
             
             answerThree.addEventListener("click", function () {
-                correct();
+                incorrect();
              });
         
             answerFour.innerHTML = "<b>Polka Dot</b>";
@@ -143,15 +142,21 @@ function questionTwo() {
         }   
 
 //Game Over
-function gameOver() {
+function gameOver(timerText) {
     timer.style.display = "none";
     clearInterval(countdown);
-    alert("ALL DONE!");
+    var score = timerText;
+   alert("Quiz Over! Your score is " + score + "!");
+    var initials = prompt("Enter your initials to record them to the Hall of Fame!");
+    localStorage.setItem("HOF", initials);
+    localStorage.setItem("score", score);
+    console.log(initials);
+    console.log(score);
 
 }
 
+
 function correct() {
-    // alert("DING DING DING");
     questionNumber ++;
     nextQuestion();
 }
@@ -166,9 +171,10 @@ if (questionNumber === 3) {
 }
     function incorrect () {
        timer.textContent = "Time Left: " + timerText;
-       timerText -=10;
+       timerText -= 10;
        if (timerText <= 0 ) {
         clearInterval(countdown);
         timer.textContent = "TIME IS UP!"
+        gameOver();
        }
     }
