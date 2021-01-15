@@ -15,6 +15,7 @@ questionNumber = 1;
 var timer = document.querySelector("#countdownSpan");
 var timerText = 40;
 var countdown;
+var score = 0;
 
 startButton.addEventListener("click", function () {
     alert("You have " + timerText + " seconds to complete the quiz. Click OK to begin.");
@@ -30,7 +31,7 @@ function myTimer() {
         //this is if you run out the clock 
         if (timerText <= 0) {
             clearInterval(countdown);
-            timer.textContent = "TIME IS UP!";
+            // timer.textContent = "TIME IS UP!";
             gameOver(timerText);
 
 
@@ -125,7 +126,7 @@ function questionThree() {
     answerTwo.innerHTML = "<b>Australian Shepherd</b>";
 
     answerTwo.addEventListener("click", function () {
-        gameOver(timerText);
+        gameOver(timerText + 20);
     });
 
     answerThree.innerHTML = "<b>English Setter</b>";
@@ -141,13 +142,39 @@ function questionThree() {
     });
 }
 
+
+function correct() {
+    questionNumber++;
+    nextQuestion();
+}
+
+function nextQuestion() {
+    if (questionNumber === 2) {
+        questionTwo();
+    };
+    if (questionNumber === 3) {
+        questionThree();
+    }
+}
+function incorrect() {
+    if (timerText <= 10) {
+        time = 0;
+    } else {
+        timerText -= 10;
+    }
+    questionNumber++;
+    nextQuestion();
+
+}
+
 //Game Over
 function gameOver(timerText) {
     timer.style.display = "none";
     clearInterval(countdown);
-    var score = timerText;
-    // console.log(score);
+    score = timerText;
+    console.log(score);
     // alert("Quiz Over! Your score is " + score + "!");
+
     var inputEl = document.createElement("input");
     inputEl.setAttribute("id", "initialInput");
     inputEl.setAttribute("type", "text");
@@ -173,28 +200,5 @@ function gameOver(timerText) {
         console.log(score);
     }
     )
-
-}
-
-
-function correct() {
-    questionNumber++;
-    nextQuestion();
-}
-
-function nextQuestion() {
-    if (questionNumber === 2) {
-        questionTwo();
-    };
-    if (questionNumber === 3) {
-        questionThree();
-
-    }
-}
-function incorrect() {
-    timer.textContent = "Time Left: " + timerText;
-    timerText -= 10;
-    questionNumber++;
-    nextQuestion();
 
 }
