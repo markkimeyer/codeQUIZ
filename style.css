@@ -12,6 +12,17 @@ h3 {
     width: 100px;
     height: 60px;
     align-items: center;
+    background-color: rgb(15, 171, 199);
+    font-family: 'Hachi Maru Pop', cursive;
+    font-size: 24px;
+    border: transparent;
+}
+
+.btn-success:hover {
+    background-color: rgb(141, 223, 18);
+    box-shadow: rgba(30, 233, 216, 0.913) 0px 7px 29px 0.2px;
+    font-family: 'Hachi Maru Pop', cursive;
+    font-size: 24px;
 }
 
 btn-outline-info {
@@ -30,4 +41,15 @@ img {
     font-size: 40px; 
     color: red;
    
+}
+
+a {
+    color: rgb(15, 171, 199);
+    font-family: 'Hachi Maru Pop', cursive;
+    text-decoration: transparent;
+}
+
+a:hover{
+    font-weight: bold;
+    color: rgb(15, 171, 199);
 }
