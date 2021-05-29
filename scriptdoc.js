@@ -198,7 +198,14 @@ function gameOver(timerText) {
         localStorage.setItem("score", score);
         console.log(initialsText);
         console.log(score);
+        hofRedirect();
     }
     )
 
 }
+
+function hofRedirect() {
+    window.location.replace("https://markkimeyer.github.io/codeQUIZ/highScore.html");
+    return false;
+}
+
