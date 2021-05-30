@@ -1,6 +1,7 @@
 var buttons = document.querySelector(".buttons");
 var header = document.querySelector("h3");
 var image = document.querySelector("img");
+var hof = document.querySelector("#hof");
 var startButton = document.querySelector("#start");
 var bubbles = document.querySelector("#answerBubbles");
 var answerOne = document.querySelector("#answerOne");
@@ -51,6 +52,7 @@ function myTimer() {
 
 function questionOne() {
     startButton.style.display = "none";
+    hof.style.display="none";
     bubbles.style.display = "block";
     header.innerHTML = "<h3>What breed of dog is this?</h3>";
     image.src = "images/dalmation.jpg";
